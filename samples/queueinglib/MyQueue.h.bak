@@ -1,0 +1,99 @@
+//
+// This file is part of an OMNeT++/OMNEST simulation example.
+//
+// Copyright (C) 2006-2008 OpenSim Ltd.
+//
+// This file is distributed WITHOUT ANY WARRANTY. See the file
+// `license' for details on this and other legal matters.
+//
+
+#ifndef __QUEUEING_QUEUE_H
+#define __QUEUEING_QUEUE_H
+
+#include "QueueingDefs.h"
+
+namespace queueing {
+
+class Job;
+
+/**
+ * Abstract base class for single-server queues.
+ */
+class QUEUEING_API Queue : public cSimpleModule
+{
+    private:
+        simsignal_t droppedSignal;
+        simsignal_t queueLengthSignal;
+        simsignal_t queueingTimeSignal;
+        simsignal_t busySignal;
+
+        Job *jobServiced;
+        cMessage *endServiceMsg;
+        cQueue queue;
+        int capacity;
+        bool fifo;
+
+        Job *getFromQueue();
+
+    public:
+        Queue();
+        virtual ~Queue();
+        int length();
+
+    protected:
+        virtual void initialize();
+        virtual void handleMessage(cMessage *msg);
+        virtual void finish();
+
+        // hook functions to (re)define behaviour
+        virtual void arrival(Job *job);
+        virtual simtime_t startService(Job *job);
+        virtual void endService(Job *job);
+};
+
+}; //namespace
+
+#endif
+
+
+
+
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+// 
+
+#ifndef MYQUEUE_H_
+#define MYQUEUE_H_
+
+#include <Queue.h>
+
+namespace queueing {
+
+class MyQueue: public queueing::Queue {
+private:
+        int capacitySTOP;
+        int capacityRESTART;
+        bool congestionModeSTOP; // If true, MyQueue rejects new users
+
+public:
+    MyQueue();
+    virtual ~MyQueue();
+
+protected:
+    virtual void initialize();
+    virtual void handleMessage(cMessage *msg);
+};
+
+} /* namespace queueing */
+
+#endif /* MYQUEUE_H_ */

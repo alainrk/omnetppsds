@@ -1,0 +1,35 @@
+file 3024 1414514546                                            
+version 2
+run General-0-20141028-17:41:21-6683
+attr configname General
+attr datetime 20141028-17:41:21
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network Network
+attr processid 6683
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 0  Network.ActiveQueue1  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 1  Network.ActiveQueue2  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 3  Network.myQueue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 2  Network.sink  lifeTime:vector  ETV
+attr interpolationmode  none
+attr title  "lifetime of arrived jobs, vector"
+attr unit  s
+0	873 8 0 0 0 0 1 0 0 0 0
+1	881 8 0 0 0 0 1 0 0 0 0
+2	889 856 22 248 0.00067958745 0.00547958745 25 0.0006 0.00158478283 0.030185487024 3.8479228707004e-05
+3	1745 1279 0 243 0 0.00547958745 59 0 5 201 797
