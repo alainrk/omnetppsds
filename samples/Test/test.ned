@@ -15,6 +15,7 @@
 
 package test;
 
+import org.omnetpp.queueing.MultigateQueue;
 import org.omnetpp.queueing.MyQueue;
 import org.omnetpp.queueing.Queue;
 import org.omnetpp.queueing.Sink;
@@ -26,24 +27,29 @@ network Network
     @display("bgb=723,462");
     submodules:
         source: Source {
-            @display("p=118,212");
+            @display("p=127,98");
         }
         ActiveQueue1: Queue {
-            @display("p=329,212");
+            @display("p=330,118");
         }
         ActiveQueue2: Queue {
-            @display("p=418,212");
+            @display("p=462,118");
         }
         sink: Sink {
             @display("p=683,212");
         }
         myQueue: MyQueue {
-            @display("p=216,212");
+            @display("p=208,338");
+        }
+        multigateQueue: MultigateQueue {
+            @display("p=478,326");
         }
     connections:
         ActiveQueue1.out --> ActiveQueue2.in++;
-        ActiveQueue2.out --> sink.in++;
+        ActiveQueue2.out --> multigateQueue.inEnd;
         source.out --> myQueue.in++;
-        myQueue.out --> ActiveQueue1.in++;
+        myQueue.out --> multigateQueue.inSource;
+        multigateQueue.out --> ActiveQueue1.in++;
+        multigateQueue.outSink --> sink.in++;
 }
 
