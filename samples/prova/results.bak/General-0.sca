@@ -1,0 +1,126 @@
+version 2
+run General-0-20141107-15:33:12-10411
+attr configname General
+attr datetime 20141107-15:33:12
+attr experiment General
+attr inifile routerTerminal.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network Network1
+attr processid 10411
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+scalar Network1.queue1 	busy:timeavg 	0.98510394402385
+attr interpolationmode  sample-hold
+attr title  "server busy state, timeavg"
+scalar Network1.queue1 	queueingTime:mean 	10.487903225806
+attr interpolationmode  none
+attr title  "queueing time at dequeue, mean"
+attr unit  s
+scalar Network1.queue1 	queueingTime:max 	16
+attr interpolationmode  none
+attr title  "queueing time at dequeue, max"
+attr unit  s
+scalar Network1.queue1 	queueLength:timeavg 	2.5829187080706
+attr interpolationmode  sample-hold
+attr title  "queue length, timeavg"
+scalar Network1.queue1 	queueLength:max 	4
+attr interpolationmode  sample-hold
+attr title  "queue length, max"
+scalar Network1.queue1 	dropped:count 	0
+attr interpolationmode  none
+attr title  "drop event, count"
+scalar Network1.queue2 	busy:timeavg 	0.59450493396063
+attr interpolationmode  sample-hold
+attr title  "server busy state, timeavg"
+scalar Network1.queue2 	queueingTime:mean 	1.1369710467706
+attr interpolationmode  none
+attr title  "queueing time at dequeue, mean"
+attr unit  s
+scalar Network1.queue2 	queueingTime:max 	8
+attr interpolationmode  none
+attr title  "queueing time at dequeue, max"
+attr unit  s
+scalar Network1.queue2 	queueLength:timeavg 	0.33796744853775
+attr interpolationmode  sample-hold
+attr title  "queue length, timeavg"
+scalar Network1.queue2 	queueLength:max 	4
+attr interpolationmode  sample-hold
+attr title  "queue length, max"
+scalar Network1.queue2 	dropped:count 	0
+attr interpolationmode  none
+attr title  "drop event, count"
+scalar Network1.queue3 	busy:timeavg 	0.28599791923273
+attr interpolationmode  sample-hold
+attr title  "server busy state, timeavg"
+scalar Network1.queue3 	queueingTime:mean 	0.13368055555556
+attr interpolationmode  none
+attr title  "queueing time at dequeue, mean"
+attr unit  s
+scalar Network1.queue3 	queueingTime:max 	1.5
+attr interpolationmode  none
+attr title  "queueing time at dequeue, max"
+attr unit  s
+scalar Network1.queue3 	queueLength:timeavg 	0.025488240487176
+attr interpolationmode  sample-hold
+attr title  "queue length, timeavg"
+scalar Network1.queue3 	queueLength:max 	1
+attr interpolationmode  sample-hold
+attr title  "queue length, max"
+scalar Network1.queue3 	dropped:count 	0
+attr interpolationmode  none
+attr title  "drop event, count"
+scalar Network1.queue4 	busy:timeavg 	0.10261499416915
+attr interpolationmode  sample-hold
+attr title  "server busy state, timeavg"
+scalar Network1.queue4 	queueingTime:mean 	0.019354838709677
+attr interpolationmode  none
+attr title  "queueing time at dequeue, mean"
+attr unit  s
+scalar Network1.queue4 	queueingTime:max 	1
+attr interpolationmode  none
+attr title  "queueing time at dequeue, max"
+attr unit  s
+scalar Network1.queue4 	queueLength:timeavg 	0.0019860966613384
+attr interpolationmode  sample-hold
+attr title  "queue length, timeavg"
+scalar Network1.queue4 	queueLength:max 	1
+attr interpolationmode  sample-hold
+attr title  "queue length, max"
+scalar Network1.queue4 	dropped:count 	0
+attr interpolationmode  none
+attr title  "drop event, count"
+scalar Network1.Terminals 	delayedJobs:timeavg 	0.70043008923201
+attr interpolationmode  sample-hold
+attr title  "number of delayed jobs, timeavg"
+scalar Network1.Terminals 	delayedJobs:max 	25
+attr interpolationmode  sample-hold
+attr title  "number of delayed jobs, max"
+scalar Network1.allocate 	queueingTime:mean 	55.398
+attr interpolationmode  none
+attr title  "queueing time at dequeue, mean"
+attr unit  s
+scalar Network1.allocate 	queueingTime:max 	125
+attr interpolationmode  none
+attr title  "queueing time at dequeue, max"
+attr unit  s
+scalar Network1.allocate 	queueLength:timeavg 	19.300887354887
+attr interpolationmode  sample-hold
+attr title  "queue length, timeavg"
+scalar Network1.allocate 	queueLength:max 	20
+attr interpolationmode  sample-hold
+attr title  "queue length, max"
+scalar Network1.allocate 	dropped:count 	0
+attr interpolationmode  none
+attr title  "drop event, count"
+scalar Network1.pota 	amount:timeavg 	0.0013257195214434
+attr interpolationmode  sample-hold
+attr title  "available resource, timeavg"
+scalar Network1.pota 	amount:min 	0
+attr interpolationmode  sample-hold
+attr title  "available resource, min"

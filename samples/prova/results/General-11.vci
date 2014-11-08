@@ -1,0 +1,38 @@
+file 41811 1415371979                                           
+version 2
+run General-11-20141107-15:52:59-14955
+attr configname General
+attr datetime 20141107-15:52:59
+attr experiment General
+attr inifile routerTerminal.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=11
+attr measurement ""
+attr network Network1
+attr processid 14955
+attr repetition 11
+attr replication #11
+attr resultdir results
+attr runnumber 11
+attr seedset 11
+
+vector 0  Network1.queue1  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 1  Network1.queue2  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 2  Network1.queue3  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 3  Network1.queue4  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 4  Network1.allocate  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+0	991 11059 0 6100 0 1309.5005 615 0 4 1453 4143
+1	12050 8850 0 6112 0 1314.5005 493 0 4 550 1058
+2	20900 1412 0 5857 0 1235.5005 79 0 2 41 43
+3	22312 214 0 5930 0 1250.0005 13 0 1 6 6
+4	22526 19285 0 6066 0 1287.5005 1021 0 20 18736 347594
