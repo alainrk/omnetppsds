@@ -58,10 +58,11 @@ network Network1
         deallocate: Deallocate {
             @display("p=280,209");
         }
-        pota: ResourcePool {
+        token: ResourcePool {
             @display("p=178,373");
         }
     connections:
+        router.out++ --> deallocate.in++;
         router.out++ --> queue1.in++;
         router.out++ --> queue2.in++;
         router.out++ --> queue3.in++;
@@ -71,7 +72,6 @@ network Network1
         queue3.out --> router.in++;
         queue4.out --> router.in++;
         sourceOnce.out --> Terminals.in++;
-        router.out++ --> deallocate.in++;
         deallocate.out --> Terminals.in++;
         Terminals.out --> allocate.in++;
         allocate.out --> router.in++;

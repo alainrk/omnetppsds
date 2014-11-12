@@ -72,6 +72,7 @@ void ResourcePool::release(long amountToRelease)
         firstIt->allocator->resourceGranted(this);
         allocatorList.pop_front();
     }
+    EV << "DEBUG resourcePool Amount: " << amount << " torelease: " << amountToRelease;
     emit(amountSignal, amount);
     if (ev.isGUI())
         updateDisplayString();

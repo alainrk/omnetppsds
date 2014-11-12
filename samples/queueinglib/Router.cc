@@ -38,6 +38,9 @@ void Router::handleMessage(cMessage *msg)
 {
     int outGateIndex = -1;  // by default we drop the message
 
+    int numProb = 5;
+    int prob[] = {20,20,20,16,24};
+
     switch (routingAlgorithm)
     {
         case ALG_RANDOM:
@@ -60,7 +63,7 @@ void Router::handleMessage(cMessage *msg)
             outGateIndex = -1;
             break;
         case ALG_PROBAB:
-            outGateIndex = getProbabGateOut();
+            outGateIndex = getProbabGateOut(prob, numProb);
             break;
         default:
             outGateIndex = -1;
@@ -76,21 +79,16 @@ void Router::handleMessage(cMessage *msg)
     send(msg, "out", outGateIndex);
 }
 
-int Router::getProbabGateOut(){
+int Router::getProbabGateOut(int prob[], int num){
     int tmp = rand() % 100;
-    if (tmp < 20){
-        return 0;
+    int sum = 0;
+    int i;
+    for (i=0;i<=num;i++){
+        sum += prob[i];
+        if (tmp <= sum)
+            return i;
     }
-    else if (tmp < 45){
-        return 1;
-    }
-    else if (tmp < 60){
-        return 2;
-    }
-    else if (tmp < 70){
-        return 3;
-    }
-    else return 4;
+    return num--;
 }
 
 }; //namespace
