@@ -22,6 +22,7 @@ simple Router
         @display("i=block/routing");
         string routingAlgorithm @enum("random","roundRobin","shortestQueue","minDelay", "probabilityService") = default("random");
         volatile int randomGateIndex = default(intuniform(0, sizeof(out)-1));    // the destination gate in case of random routing
+        string probVec = default("");
     gates:
         input in[];
         output out[];

@@ -30,15 +30,14 @@ enum {
 class QUEUEING_API Router : public cSimpleModule
 {
     private:
-        /*int prob[];
-        int numProb;*/
+        std::vector<double> probVec;
 
         int routingAlgorithm;  // the algorithm we are using for routing
         int rrCounter;         // msgCounter for round robin routing
     protected:
         virtual void initialize();
         virtual void handleMessage(cMessage *msg);
-        virtual int getProbabGateOut(int prob[], int num);
+        virtual int getProbabGateOut();
 };
 
 }; //namespace

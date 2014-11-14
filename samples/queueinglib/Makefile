@@ -24,27 +24,27 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc and .msg files
 OBJS = \
-    $O/MyQueue.o \
-    $O/PassiveQueue.o \
+    $O/Clone.o \
+    $O/ResourceBasedQueue.o \
+    $O/Delay.o \
+    $O/SelectionStrategies.o \
     $O/Source.o \
     $O/Server.o \
-    $O/Fork.o \
-    $O/MultigateQueue.o \
-    $O/Clone.o \
-    $O/Delay.o \
-    $O/ResourcePool.o \
-    $O/Queue.o \
-    $O/Sink.o \
-    $O/Router.o \
-    $O/JobList.o \
-    $O/Job.o \
-    $O/Classifier.o \
-    $O/SelectionStrategies.o \
     $O/Join.o \
-    $O/ResourceBasedQueue.o \
+    $O/PassiveQueue.o \
+    $O/MyQueue.o \
+    $O/Job.o \
+    $O/MultigateQueue.o \
     $O/Merge.o \
+    $O/Classifier.o \
+    $O/JobList.o \
+    $O/Router.o \
     $O/Allocate.o \
     $O/Deallocate.o \
+    $O/ResourcePool.o \
+    $O/Queue.o \
+    $O/Fork.o \
+    $O/Sink.o \
     $O/Job_m.o
 
 # Message files

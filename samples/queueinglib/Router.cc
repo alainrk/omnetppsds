@@ -7,9 +7,9 @@
 // `license' for details on this and other legal matters.
 //
 
-//p3,1 = 0.2; p3,4 = p3,5 = 0.2; p3,6 = p3,7 = 0.04.
-
 #include "Router.h"
+#include <vector>
+#include <omnetpp.h>
 
 namespace queueing {
 
@@ -30,6 +30,15 @@ void Router::initialize()
         routingAlgorithm = ALG_MIN_SERVICE_TIME;
     } else if (strcmp(algName, "probabilityService") == 0) {
         routingAlgorithm = ALG_PROBAB;
+
+        const char *probVecPar = par("probVec");
+        cStringTokenizer tokenizer(probVecPar);
+        const char *token;
+        while ((token = tokenizer.nextToken())!=NULL)
+            probVec.push_back(atof(token));
+
+        if (probVec.size() == 0)
+            throw cRuntimeError("At least one address must be specified in the probVec parameter!");
     }
     rrCounter = 0;
 }
@@ -37,9 +46,6 @@ void Router::initialize()
 void Router::handleMessage(cMessage *msg)
 {
     int outGateIndex = -1;  // by default we drop the message
-
-    int numProb = 5;
-    int prob[] = {20,20,20,16,24};
 
     switch (routingAlgorithm)
     {
@@ -63,7 +69,7 @@ void Router::handleMessage(cMessage *msg)
             outGateIndex = -1;
             break;
         case ALG_PROBAB:
-            outGateIndex = getProbabGateOut(prob, numProb);
+            outGateIndex = getProbabGateOut();
             break;
         default:
             outGateIndex = -1;
@@ -79,16 +85,17 @@ void Router::handleMessage(cMessage *msg)
     send(msg, "out", outGateIndex);
 }
 
-int Router::getProbabGateOut(int prob[], int num){
-    int tmp = rand() % 100;
-    int sum = 0;
+int Router::getProbabGateOut(){
+    double tmp = (float) (rand() % 101);
+    tmp = tmp /100;
+    double sum = 0;
     int i;
-    for (i=0;i<=num;i++){
-        sum += prob[i];
+    for (i=0;i<=probVec.size();i++){
+        sum += probVec[i];
         if (tmp <= sum)
             return i;
     }
-    return num--;
+    return 0;
 }
 
 }; //namespace
